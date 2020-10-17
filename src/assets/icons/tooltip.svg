@@ -1,0 +1,18 @@
+<svg width="17" height="17" version="1.1" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="8bpaa">
+   <path d="m0 8.5a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0z" fill="#fff"/>
+  </clipPath>
+ </defs>
+ <g fill="none">
+  <path d="m0 8.5a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0z"/>
+  <path d="m0 8.5a8.5 8.5 0 1 1 17 0 8.5 8.5 0 0 1-17 0z" clip-path="url(#8bpaa)" stroke="#303475" stroke-miterlimit="20" stroke-width="3"/>
+ </g>
+ <g transform="translate(14.555 -2.322)">
+  <g transform="translate(-14.94 4.6433)">
+   <g transform="translate(7,2)" dominant-baseline="text-before-edge" fill="#303475" aria-label="i">
+    <path d="m0.92383 2.3418h1.9229v6.0156h-1.9229zm0-2.3418h1.9229v1.5684h-1.9229z"/>
+   </g>
+  </g>
+ </g>
+</svg>
