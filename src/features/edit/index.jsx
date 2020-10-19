@@ -1,5 +1,17 @@
 import React from 'react';
-import { makeStyles, Typography, AppBar, Tabs, Tab, Container, Hidden, IconButton, SvgIcon } from '@material-ui/core';
+import { useRouter } from 'next/router';
+import {
+  makeStyles,
+  Typography,
+  AppBar,
+  Tabs,
+  Tab,
+  Container,
+  Hidden,
+  IconButton,
+  SvgIcon,
+  Button,
+} from '@material-ui/core';
 
 import RightArrowIcon from 'src/assets/icons/tripleArrowRight.svg';
 
@@ -7,7 +19,9 @@ import TabPanel from 'src/components/TabPanel';
 import Drawer from 'src/components/drawer';
 
 import GeneralInfoTab from './generalInfo';
-import GeneralInfoTabLeft from './generalInfoLeft';
+import Description from './description';
+import ProductPhotos from './productPhotos';
+
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -24,6 +38,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Settings() {
   const classes = useStyles();
+  const router = useRouter();
+
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
 
@@ -42,11 +58,14 @@ export default function Settings() {
   return (
     <div>
       <Container maxWidth="xl">
+        {/* <Button variant="outlined" className={classes.button}>
+          Go Back
+        </Button> */}
         <div className={classes.header}>
           <div className={classes.textContainer}>
-            <Typography variant="h1">Settings</Typography>
+            <Typography variant="h1">List Product to eBay</Typography>
             <Typography variant="subtitle1" className={classes.subtitle}>
-              Manage your app settings
+              Edit the product details to list the product.
             </Typography>
           </div>
           <div>
@@ -62,18 +81,18 @@ export default function Settings() {
         <AppBar position="static" color="transparent">
           <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
             <Tab label="General Info" id="simple-tab-0" aria-controls="simple-tabpanel-0" />
-            <Tab label="Product Template" id="simple-tab-1" aria-controls="simple-tabpanel-1" />
+            <Tab label="Description" id="simple-tab-1" aria-controls="simple-tabpanel-1" />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
           <GeneralInfoTab />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <Description />
         </TabPanel>
       </div>
       <Drawer variant="persistent" anchor="right" open={open}>
-        <GeneralInfoTabLeft onClose={handleClose} />
+        <ProductPhotos onClose={handleClose} />
       </Drawer>
     </div>
   );

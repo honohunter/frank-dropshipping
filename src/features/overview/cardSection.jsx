@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { makeStyles, Grid, Typography, IconButton, Drawer, Hidden, SvgIcon } from '@material-ui/core';
+import { makeStyles, Grid, Typography, IconButton, Hidden, SvgIcon } from '@material-ui/core';
 
 import RightArrowIcon from 'src/assets/icons/tripleArrowRight.svg';
 
@@ -8,10 +8,9 @@ import BarsIcon from 'src/assets/icons/bars.svg';
 import ProfitIcon from 'src/assets/icons/profit.svg';
 
 import Card from 'src/components/card';
+import Drawer from 'src/components/drawer';
 
 import RightTableSection from './rightTableSection';
-
-const drawerWidth = '100%';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,20 +19,6 @@ const useStyles = makeStyles(theme => ({
   header: {
     display: 'flex',
     justifyContent: 'space-between',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    height: 'calc(100% - 100px)',
-    top: 'unset',
-    bottom: 0,
-    padding: theme.spacing(2),
-  },
-  paperAnchorDockedRight: {
-    borderLeft: 'unset',
   },
 }));
 
@@ -48,14 +33,6 @@ export default function CardSection() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [open]);
 
   return (
     <>
@@ -89,16 +66,7 @@ export default function CardSection() {
           <Grid item md={2} />
         </Grid>
       </div>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="right"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-          paperAnchorDockedRight: classes.paperAnchorDockedRight,
-        }}
-      >
+      <Drawer variant="persistent" anchor="right" open={open}>
         <RightTableSection onClose={handleClose} />
       </Drawer>
     </>

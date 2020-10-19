@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   select: {
-    // height: 26,
+    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       width: 150,
     },
@@ -68,7 +68,7 @@ export default function RightTableSection({ onClose }) {
         <Hidden mdUp>
           <div className={classes.buttonWrapper}>
             <IconButton onClick={onClose}>
-              <SvgIcon component={leftArrowIcon} color="primary" viewBox="0 0 29 16.111" fontSize="small"/>
+              <SvgIcon component={leftArrowIcon} color="primary" viewBox="0 0 29 16.111" fontSize="small" />
             </IconButton>
           </div>
         </Hidden>

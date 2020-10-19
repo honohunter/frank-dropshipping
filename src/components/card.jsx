@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#ffffff',
     minWidth: 200,
     [theme.breakpoints.down('sm')]: {
-      height: 100,
+      height: 80,
     },
   },
   leftSection: {

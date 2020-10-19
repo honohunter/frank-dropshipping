@@ -8,7 +8,7 @@ export default function SavedProducts() {
   return (
     <>
       <SearchBar />
-      <TableHeader title="Saved Products" count="18" subtitle="View the products you’ve saved." />
+      <TableHeader bulk title="Saved Products" count="18" subtitle="View the products you’ve saved." />
       <TableSection />
     </>
   );

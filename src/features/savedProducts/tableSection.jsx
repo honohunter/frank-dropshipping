@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import MaterialTable from 'material-table';
 import { makeStyles, Typography, Button } from '@material-ui/core';
 
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MaterialTableDemo() {
   const classes = useStyles();
+  const router = useRouter();
   const [state, setState] = React.useState({
     columns: [
       { title: 'eBay Title', field: 'eBayTitle', width: 150 },
@@ -51,7 +53,14 @@ export default function MaterialTableDemo() {
         field: 'list',
         width: 80,
         render: rowData => (
-          <Button variant="contained" color="secondary" size="small">
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            onClick={() => {
+              router.push({ pathname: `${router.pathname}/edit` });
+            }}
+          >
             List
           </Button>
         ),

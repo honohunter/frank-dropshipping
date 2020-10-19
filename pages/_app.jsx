@@ -7,6 +7,7 @@ import Layout from 'src/layouts';
 import theme from 'src/themes/light';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'react-quill/dist/quill.snow.css';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

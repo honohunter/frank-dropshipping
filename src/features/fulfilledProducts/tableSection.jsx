@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import MaterialTable from 'material-table';
 import { makeStyles, Typography, Button } from '@material-ui/core';
 
@@ -23,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MaterialTableDemo() {
   const classes = useStyles();
+  const router = useRouter();
   const [state, setState] = React.useState({
     columns: [
       { title: 'Title', field: 'title', width: 200 },
@@ -58,8 +60,16 @@ export default function MaterialTableDemo() {
         title: '',
         field: 'fulfill',
         render: () => (
-          <Button variant="contained" color="secondary" size="small" className={classes.fulfillButton}>
-            Fulfill
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            className={classes.fulfillButton}
+            onClick={() => {
+              router.push({ pathname: `${router.pathname}/edit` });
+            }}
+          >
+            Relist
           </Button>
         ),
       },
@@ -90,7 +100,7 @@ export default function MaterialTableDemo() {
           headerStyle: {
             fontSize: 12,
             fontWeight: 700,
-            border: '1 solid #edeefa',
+            border: '1px solid #edeefa',
             backgroundColor: '#eef0f8',
           },
           rowStyle: {

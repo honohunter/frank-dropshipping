@@ -1,7 +1,8 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { makeStyles, Container } from '@material-ui/core';
 
-import MobileHeader from 'src/features/overview/mobileHeader';
+import MobileHeader from 'src/components/mobileHeader';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -11,12 +12,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function DesktopLayout({ children }) {
   const classes = useStyles();
+  const { pathname } = useRouter();
+
+  const matches = pathname.match('settings') || pathname.match('edit');
   return (
     <>
       <MobileHeader />
-      <main className={classes.content}>
-        <Container maxWidth="xl">{children} </Container>
-      </main>
+      <main className={classes.content}>{matches ? children : <Container maxWidth="xl">{children} </Container>}</main>
     </>
   );
 }

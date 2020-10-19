@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery, Backdrop, ThemeProvider, CssBaseline } from '@material-ui/core';
+import { useMediaQuery, Backdrop } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import DesktopLayout from './desktopLayout';

@@ -106,7 +106,7 @@ export default function MaterialTableDemo() {
           headerStyle: {
             fontSize: 12,
             fontWeight: 700,
-            border: '1 solid #edeefa',
+            border: '1px solid #edeefa',
             backgroundColor: '#eef0f8',
           },
           rowStyle: {

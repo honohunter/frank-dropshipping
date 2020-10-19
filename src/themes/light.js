@@ -45,6 +45,13 @@ let theme = createMuiTheme({
         // fontSize: 20,
       },
     },
+    h5: {
+      fontSize: 16,
+      fontWeight: 700,
+      '@media (max-width: 600px)': {
+        // fontSize: 20,
+      },
+    },
     subtitle1: {
       fontSize: 16,
       fontWeight: 600,
@@ -91,7 +98,7 @@ let theme = createMuiTheme({
       root: {
         fontSize: 12,
         fontWeight: 700,
-        textAlign: 'center',
+        // textAlign: 'center',
       },
     },
     MuiMenuItem: {

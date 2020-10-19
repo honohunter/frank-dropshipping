@@ -17,7 +17,7 @@ import Card from 'src/components/card2';
 import eBayLogo from 'src/assets/images/eBay.png';
 import amazonLogo from 'src/assets/images/amazon.png';
 
-import GeneralInfoLeft from './generalInfoLeft';
+import ProductPhotos from './productPhotos';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -64,34 +64,36 @@ export default function GeneralInfoTab() {
         <Grid item xs={12} md={8}>
           <Container>
             <div className={classes.container}>
-              <Typography variant="h6" paragraph>
-                Connected Platforms
-              </Typography>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
-                  <Card img={eBayLogo}>
-                    <Button variant="outlined" size="small" className={classes.buttonDisconnected}>
-                      Disconnected
-                    </Button>
-                    <Typography variant="h6" className={classes.subtext}>
-                      Expires 06-20-2020 15:25:17
-                    </Typography>
-                  </Card>
+              <FormControl margin="normal" fullWidth>
+                <Typography variant="h6" gutterBottom>
+                  Product Name
+                </Typography>
+                <TextField variant="outlined" size="small" fullWidth className={classes.textField} />
+              </FormControl>
+              <FormControl margin="normal" fullWidth>
+                <Typography variant="h6" paragraph>
+                  Platform Prices
+                </Typography>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} md={6}>
+                    <Card img={eBayLogo}>
+                      <Typography variant="h1">$270</Typography>
+                    </Card>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Card img={amazonLogo}>
+                      <Typography variant="h1">$300</Typography>
+                    </Card>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <Card img={amazonLogo}>
-                    <Button variant="outlined" size="small" className={classes.buttonConnect}>
-                      Connect
-                    </Button>
-                  </Card>
-                </Grid>
-              </Grid>
+              </FormControl>
+
               <div>
                 <Grid container spacing={3}>
                   <Grid item xs={12} md>
                     <FormControl margin="normal" fullWidth>
                       <Typography variant="h6" gutterBottom>
-                        Minimum Profit
+                        Set Price
                       </Typography>
                       <TextField variant="outlined" size="small" fullWidth className={classes.textField} />
                     </FormControl>
@@ -102,6 +104,18 @@ export default function GeneralInfoTab() {
                         Profit
                       </Typography>
                       <TextField variant="outlined" size="small" fullWidth className={classes.textField} />
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={12} md>
+                    <FormControl margin="normal" fullWidth>
+                      <Typography variant="h6" gutterBottom>
+                        Category
+                      </Typography>
+                      <Select variant="outlined" className={classes.select}>
+                        <MenuItem value="1">United States</MenuItem>
+                        <MenuItem value="2">United States</MenuItem>
+                        <MenuItem value="3">United States</MenuItem>
+                      </Select>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} md>
@@ -144,17 +158,6 @@ export default function GeneralInfoTab() {
                   </Grid>
                 </Grid>
                 <Grid container direction="column">
-                  <Grid item xs={12} md={4}>
-                    <FormControl margin="normal" fullWidth>
-                      <Typography variant="h6" gutterBottom>
-                        Policies
-                      </Typography>
-                      <Button variant="contained" color="secondary">
-                        Pull from
-                        <img src={eBayLogo} style={{ height: 12, marginLeft: 5 }} alt="img" />
-                      </Button>
-                    </FormControl>
-                  </Grid>
                   <Grid item xs={12} md={6}>
                     <FormControl margin="normal" fullWidth>
                       <Typography variant="h6" gutterBottom>
@@ -198,7 +201,7 @@ export default function GeneralInfoTab() {
         </Grid>
         <Hidden smDown>
           <Grid item xs={12} md={4}>
-            <GeneralInfoLeft />
+            <ProductPhotos />
           </Grid>
         </Hidden>
         <Grid item xs={12}>
