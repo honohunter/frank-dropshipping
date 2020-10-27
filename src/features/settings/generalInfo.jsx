@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   Grid,
@@ -18,6 +18,7 @@ import eBayLogo from 'src/assets/images/eBay.png';
 import amazonLogo from 'src/assets/images/amazon.png';
 
 import GeneralInfoLeft from './generalInfoLeft';
+import Popup from './popup';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -58,6 +59,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function GeneralInfoTab() {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className={classes.root}>
       <Grid container>
@@ -70,7 +73,14 @@ export default function GeneralInfoTab() {
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
                   <Card img={eBayLogo}>
-                    <Button variant="outlined" size="small" className={classes.buttonDisconnected}>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      className={classes.buttonDisconnected}
+                      onClick={() => {
+                        setOpen(true);
+                      }}
+                    >
                       Disconnected
                     </Button>
                     <Typography variant="h6" className={classes.subtext}>
@@ -209,6 +219,13 @@ export default function GeneralInfoTab() {
           </Container>
         </Grid>
       </Grid>
+      {open && (
+        <Popup
+          close={() => {
+            setOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 }
