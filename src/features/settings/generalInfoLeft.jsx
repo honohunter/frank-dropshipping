@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import {
   Grid,
@@ -41,6 +41,7 @@ const useStyles = makeStyles(theme => ({
   selection: {
     display: 'flex',
     alignItems: 'center',
+    height: 53,
     padding: theme.spacing(1, 2),
     '& > *:first-child': {
       flexGrow: 1,
@@ -55,6 +56,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function GeneralInfoLeft({ onClose }) {
   const classes = useStyles();
+  const [select, setSelected] = useState(2);
+
   return (
     <div className={classes.root}>
       <Hidden mdUp>
@@ -72,18 +75,29 @@ export default function GeneralInfoLeft({ onClose }) {
             </Typography>
           </FormControl>
           <FormControl margin="dense" fullWidth>
-            <ButtonBase className={classes.selection}>
+            <ButtonBase
+              className={clsx(classes.selection, select === 1 && classes.selected)}
+              onClick={() => {
+                setSelected(1);
+              }}
+            >
               <Typography variant="button" align="left">
                 Use Out of Stock
               </Typography>
+              {select === 1 && <CheckCircleRoundedIcon fontSize="large" className={classes.icon} />}
             </ButtonBase>
           </FormControl>
           <FormControl margin="dense" fullWidth>
-            <ButtonBase className={clsx(classes.selection, classes.selected)}>
+            <ButtonBase
+              className={clsx(classes.selection, select === 2 && classes.selected)}
+              onClick={() => {
+                setSelected(2);
+              }}
+            >
               <Typography variant="button" align="left">
                 Require Immediate Payment with Buy it Now
               </Typography>
-              <CheckCircleRoundedIcon fontSize="large" className={classes.icon} />
+              {select === 2 && <CheckCircleRoundedIcon fontSize="large" className={classes.icon} />}
             </ButtonBase>
           </FormControl>
           <FormControl margin="normal" fullWidth>
