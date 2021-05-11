@@ -18,5 +18,6 @@ module.exports = withPlugins(
       });
       return config;
     },
+    target: 'serverless',
   },
 );
